@@ -1,9 +1,10 @@
 import React from "react";
 import './Navbar.scss';
 import logo from './logo-full.svg';
+import CartWidget from './CartWidget'
 
 
-function Navbar() {
+export default function Navbar () {
     return (
         <>  
             <div className="topbar">
@@ -24,7 +25,6 @@ function Navbar() {
                     <a href="/" className="link-nav">CATEGORIAS</a>
                     <a href="/" className="link-nav">PRODUCTOS</a>
                     <a href="/" className="link-nav">PROMOCIONES</a>
-                    
                 </div>
 
                 <div className="Navbar__logo">
@@ -43,13 +43,10 @@ function Navbar() {
                     <a href="/" className="link-icons">
                         <i class="fal fa-heart"></i>
                     </a>
-                    <a href="/" className="link-icons">
-                        <i class="fal fa-shopping-cart"></i>
-                    </a>
+                    {/* componente del Carrito */}
+                    <CartWidget />
                 </div>
             </div>
         </>
     );
 }
-
-  export default Navbar;
