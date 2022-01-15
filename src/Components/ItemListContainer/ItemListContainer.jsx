@@ -1,17 +1,19 @@
 import React from "react";
-import './ItemListContainer.scss';
+import "./ItemListContainer.scss";
+import ItemCount from "../ItemCount.js/ItemCount";
 
+export default function ItemListContainer() {
 
-export default function ItemListContainer ({greeting}) {
-    return (
-        <>  
-            <div id="ItemListContainer">
-                <div className="container">
-                    <div className="product">
-                        <span className="product__title"> {greeting} </span>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div id="ItemListContainer">
+        <div className="container">
+          <div className="product">
+            <span className="product__title"> </span>
+            <ItemCount />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
