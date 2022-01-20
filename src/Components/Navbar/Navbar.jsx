@@ -9,8 +9,8 @@ export default function Navbar () {
         <>  
             <div className="topbar">
                 <div className="topbar__left">
-                    <a href="/"><i class="fab fa-facebook-f"></i></a> 
-                    <a href="/"><i class="fab fa-instagram"></i></a>
+                    <a href="/"><i className="fab fa-facebook-f"></i></a> 
+                    <a href="/"><i className="fab fa-instagram"></i></a>
                     <span>SÍGUENOS EN NUESTRAS REDES SOCIALES </span>
                 </div>
                 <div className="topbar__right">
@@ -35,13 +35,13 @@ export default function Navbar () {
 
                 <div className="Navbar__icons">
                     <a href="/" className="link-icons">
-                        <i class="fal fa-search"></i>
+                        <i className="fal fa-search"></i>
                     </a>
                     <a href="/" className="link-icons">
-                        <i class="fal fa-user-alt"></i>
+                        <i className="fal fa-user-alt"></i>
                     </a>
                     <a href="/" className="link-icons">
-                        <i class="fal fa-heart"></i>
+                        <i className="fal fa-heart"></i>
                     </a>
                     {/* componente del Carrito */}
                     <CartWidget />

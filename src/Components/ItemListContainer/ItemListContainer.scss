@@ -1,8 +1,46 @@
 #ItemListContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
 
     .container {
-        max-width: 200px;
+        width: 90%;
         margin: 50px auto 10px;
+    }
+
+    .Product {
         color: #fff;
+
+
+        &__Name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        &__Stock {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        &__Price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 0;
+            font-family: 'Oswald', sans-serif;
+            color: #8CC63F;
+        }
+
+    }
+
+
+    .loading {
+        width: 100vw;
+        height: 60vh;
+        display: flex;
+
+        img {
+            margin: auto;
+        }
     }
 }
