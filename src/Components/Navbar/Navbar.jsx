@@ -2,6 +2,7 @@ import React from "react";
 import './Navbar.scss';
 import logo from './logo-full.svg';
 import CartWidget from './CartWidget'
+import { Link } from 'react-router-dom';
 
 
 export default function Navbar () {
@@ -21,16 +22,15 @@ export default function Navbar () {
             <div className="Navbar">
 
                 <div className="Navbar__menu">
-                    <a href="/" className="link-nav">HOME</a>
-                    <a href="/" className="link-nav">CATEGORIAS</a>
-                    <a href="/" className="link-nav">PRODUCTOS</a>
-                    <a href="/" className="link-nav">PROMOCIONES</a>
+                    <Link to="/" className="link-nav">HOME</Link>
+                    <Link to="/categoria/marvel" className="link-nav">CATEGORIAS MARVEL</Link>
+                    <Link to="/categoria/dbz" className="link-nav">CATEGORIAS DBZ</Link>
                 </div>
 
                 <div className="Navbar__logo">
-                    <a href="/">
+                    <Link to="/">
                         <img src={logo} className="logo-navbar" alt="Tic-Pop" />
-                    </a>
+                    </Link>  
                 </div>
 
                 <div className="Navbar__icons">

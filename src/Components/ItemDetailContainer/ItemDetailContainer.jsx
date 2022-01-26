@@ -1,23 +1,24 @@
-import React, {useState, useEffect} from "react";
-import Item from "../Item/Item";
-import loading from "./loading.gif";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import ItemDetail from "../ItemDetail/ItemDetail";
 
-export default function ItemList() {
-  const [PromiseArrive, setPromiseArrive] = useState(false);
-  const [ProductLinsting, setProductLinsting] = useState([ ]);
 
-  
+export default function ItemDetailContainer() {
 
-  const ProductPromise = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve([
-          {
+  const { itemId } = useParams();
+
+  const [producto, setProducto] = useState({});
+
+  useEffect(()=>{
+      setTimeout(()=>{
+
+          let ProductsDT = [ {
             id: 'PDP001',
             name: "Funko Pop Spiderman",
             price: 15,
             stock: 5,
             description: 'Lorem ipsum dolor sit amet, ncididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
-            imagePDP: require("./spide.jpg"),
+            imagePDP: "./spide.jpg",
             category: 'marvel'
           },
           {
@@ -26,7 +27,7 @@ export default function ItemList() {
             price: 18,
             stock: 2,
             description: 'Lorem ipsum dolor sit amet, ncididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
-            imagePDP:  require("./goku.jpg"),
+            imagePDP:  "./goku.jpg",
             category: 'dbz'
           },
           {
@@ -35,7 +36,7 @@ export default function ItemList() {
             price: 15,
             stock: 5,
             description: 'Lorem ipsum dolor sit amet, ncididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
-            imagePDP: require("./thanos.jpg"),
+            imagePDP: "./thanos.jpg",
             category: 'marvel'
           },
           {
@@ -44,36 +45,23 @@ export default function ItemList() {
             price: 15,
             stock: 3,
             description: 'Lorem ipsum dolor sit amet, ncididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
-            imagePDP: require("./iroman.jpg"),
+            imagePDP: "./iroman.jpg",
             category: 'marvel'
-          }
-        ]);
-      }, 1000);
-  })
+          }  
+        ];
 
-  useEffect(() => {
-    ProductPromise
-    .then(res => {
-       setPromiseArrive(true);
-       setProductLinsting(res);
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  })
- 
+          ProductsDT = ProductsDT.filter(item => item.id === itemId);
+
+          let myProducto = ProductsDT[0];
+
+          setProducto(myProducto);
+
+      }, 2000)
+  }, [itemId])
 
   return (
-    <> 
-      {(PromiseArrive) ?
-      <>
-        {ProductLinsting.map((item, i) => {
-          return <Item item={item} key={i} />
-        })}
-      </>
-        :
-        <div className="loading"> <img src={loading} alt="" />  </div>
-      }
+    <>
+      <ItemDetail producto={producto}/>
     </>
   );
 }
